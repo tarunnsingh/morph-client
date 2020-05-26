@@ -38,8 +38,10 @@ class UploadBox extends Component {
                           files={this.state.files}
                           allowMultiple={true}
                           maxFiles={2}
+                          name={'singleimage'}
                           allowReorder={true}
                           instantUpload={false}
+                          labelIdle={'Drag & Drop your Images or <span class="filepond--label-action"> Browse </span>'}
                           server={'/api/upload'}
                           oninit={() => this.handleInit() }
                           onupdatefiles={(fileItems) => {
@@ -47,7 +49,15 @@ class UploadBox extends Component {
                               this.setState({
                                   files: fileItems.map(fileItem => fileItem.file)
                               });
-                          }}>
+                          }}
+                          onprocessfile={(error, fileItem) => {
+                              if(!error){
+                              this.props.handleFileName(fileItem.file.name)
+                            } else{
+                                console.error(error)
+                            } 
+                        }}
+                          >
                 </FilePond>
 
             </div>

@@ -21,7 +21,7 @@ class UploadBox extends Component {
         super(props);
         this.state = {
             files: []
-        };
+        }
     }
     
     handleInit() {
@@ -45,7 +45,6 @@ class UploadBox extends Component {
                           server={'/api/upload'}
                           oninit={() => this.handleInit() }
                           onupdatefiles={(fileItems) => {
-                              // Set current file objects to this.state
                               this.setState({
                                   files: fileItems.map(fileItem => fileItem.file)
                               });
@@ -57,6 +56,7 @@ class UploadBox extends Component {
                                 console.error(error)
                             } 
                         }}
+
                           >
                 </FilePond>
 

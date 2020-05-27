@@ -1,6 +1,8 @@
 import React, {Component, Fragment } from 'react';
-import { UploadBox }  from './components/index'
+import { UploadBox, Footer }  from './components/index'
 import { Typography, Toolbar, AppBar, Button, Grid } from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner, faCircleNotch, faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 import styles from './App.module.css'
 import axios from 'axios'
 // import FileDownload from 'js-file-download'
@@ -11,7 +13,8 @@ export default class App extends Component {
     filenames: [],
     disabled: true,
     connectedName: '',
-    loading: false
+    loading: false,
+    sessionComplete: false
   };
 
   createConnectedName = () => {
@@ -51,6 +54,9 @@ export default class App extends Component {
       });
     }
   }
+  componentDidUpdate = () => {
+
+  }
 
   resetPage = () => {
     this.setState({
@@ -60,8 +66,7 @@ export default class App extends Component {
     loading: false
     })
   }
-  
-  
+
 
   render() {
     console.log(this.state)
@@ -78,13 +83,20 @@ export default class App extends Component {
       alignItems="center"
       justify="center"
       className={styles.button}>
+      <Grid item xs={12} md = {6} lg={6}>
       <Button variant="contained" color="primary" disabled={this.state.disabled} onClick={this.handleClick}>
-        Download Morph GIF
+      <Typography variant="button"><FontAwesomeIcon icon={faArrowAltCircleDown} /> Download Morph GIF </Typography>
       </Button>
-      {this.state.loading && 
-      <Typography color="primary" variant="caption">Building Morph, your download will begin in few seconds...</Typography>}
       </Grid>
+      {this.state.loading && 
+      <Fragment>
+      <Typography className={styles.typo} color="primary" variant="caption">Building Morph, your download will begin in a few seconds...</Typography>
+      <FontAwesomeIcon icon={faCircleNotch} spin />
+      </Fragment>
+      }
       <UploadBox handleFileName = {this.handleFileName}/>
+      </Grid>
+      <Footer />
       </Fragment>
     );
   }

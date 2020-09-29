@@ -1,6 +1,6 @@
 <img src="https://cdn.dribbble.com/users/470545/screenshots/2153975/face-morphing.gif" width="300"/>
 
-## Face Morphing (Client Side Script) - See Client Side [Here](https://github.com/tarunnsingh/morph-server).
+## Face Morphing (Client Side Script) - See Server Side [Here](https://github.com/tarunnsingh/morph-server).
 
 ## Project Demo :nerd_face:
 

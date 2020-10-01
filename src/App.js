@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { UploadBox, Footer } from "./components/index";
 import { Typography, Toolbar, AppBar, Button, Grid } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LoadingScreen from './components/Loading';
 import {
   faSpinner,
   faCircleNotch,
@@ -102,14 +103,7 @@ export default class App extends Component {
           </Grid>
           {this.state.loading && (
             <Fragment>
-              <Typography
-                className={styles.typo}
-                color="primary"
-                variant="caption"
-              >
-                Building Morph, your download will begin in a few seconds...
-              </Typography>
-              <FontAwesomeIcon icon={faCircleNotch} spin />
+              <LoadingScreen />
             </Fragment>
           )}
           <UploadBox handleFileName={this.handleFileName} />

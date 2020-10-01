@@ -14,19 +14,30 @@ export default function LoadingScreen() {
     ];
     let iter = 0;
     const time = Math.random() * 3000;
+    const loadingEl = document.getElementById('loading-box');
+    loadingEl.style.display = 'flex';
+    loadingEl.style.flexDirection = 'column';
+    loadingEl.style.marginTop = '10px';
+    loadingEl.style.marginRight = 'auto';
+    loadingEl.style.marginLeft = 'auto';
     const textChanger = setInterval(() => {
-      document.getElementById("text-slider").textContent = text[iter];
-      iter<3 ? iter++ : stopTimer();
+      loadingEl.firstElementChild.textContent = text[iter];
+      iter < 3 ? iter++ : stopTimer();
     }, time + 3000);
     const stopTimer = () => clearInterval(textChanger);
   };
 
   return (
     <>
-      <Typography className={styles.typo} style={{fontSize: "20px"}} color="primary" variant="caption" id="text-slider">
+      <Typography
+        className={styles.typo}
+        style={{ fontSize: '20px', marginLeft: 'auto', marginRight: 'auto' }}
+        color="primary"
+        variant="caption"
+      >
         {changingText()}
       </Typography>
-      <img src={LoadingIcon} style={{ maxWidth: '100px' }} alt="Loading..." />
+      <img src={LoadingIcon} style={{ maxWidth: '100px', marginLeft: 'auto', marginRight: 'auto' }} alt="Loading..." />
     </>
   );
 }

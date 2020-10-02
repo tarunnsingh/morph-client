@@ -1,0 +1,15 @@
+---
+version: '3'
+    
+services:
+          
+  morph-server:
+    build: ../morph-server/.
+    ports:
+      - 5000
+
+  morph-client:
+    build: .
+    hostname: morph-client
+    links:
+      - morph-server

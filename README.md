@@ -40,7 +40,9 @@ This will run only when you are up and running the server.
 
 1. Go to the root folder of the project.
 2. Build the Docker image with this command: `docker build -t morph-client .`
-3. Once it finishes building, run the following command to start
+3. Once it finishes building, run the following command to start `docker run -itd -p [appPort]:[containerPortToExpose] morph-client:latest`.
+
+- **Note:** the `appPort` is the one where the application would be listening to, and the `containerPortToExpose` is the one that would be visible outside the container. Eg: `3000:3000`
 
 ### Contribute
 

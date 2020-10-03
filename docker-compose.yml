@@ -1,0 +1,17 @@
+---
+version: '3'
+    
+services:
+          
+  morph-server:
+    build: https://github.com/tarunnsingh/morph-server.git
+    ports:
+      - 5000
+
+  morph-client:
+    build: .
+    hostname: morph-client
+    ports:
+      - 3000:3000
+    links:
+      - morph-server

@@ -19,6 +19,14 @@ This will run only when you are up and running the server.
 1. **FilePond**: FilePond provides a smooth UX for uploading and kind of files. A wrapper built for ReactJS makes our job easy.
 2. **Material UI**: Provides easy styling functionalities to React components.
 
+### Requirements:
+
+- **Nodejs**: [Node.js](https://nodejs.org/dist/latest-v8.x/docs/api/) is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+- **Docker**: [Download Docker and Docker Compose](https://docs.docker.com/get-docker/) is an open platform for developing, shipping, and running applications.
+  For Windows and Mac, it's recommended to get the `Docker Desktop` app.
+
+  - Docker Engine Version: v19.03.8
+
 ### Run Locally: :rocket:
 
 1. [Important] Before running this client side script, make sure you have started your server succesfully. Check Steps in the [SERVER](https://github.com/tarunnsingh/morph-server) repo.
@@ -27,6 +35,14 @@ This will run only when you are up and running the server.
 4. Install dependecies with `npm install`.
 5. Run the script with `npm start`.
 6. Go to ```http://localhost:3000" in browse to test the project.
+
+### Run using Docker. :rocket:
+
+1. Go to the root folder of the project.
+2. Build the Docker image with this command: `docker build -t morph-client .`
+3. Once it finishes building, run the following command to start `docker run -itd -p [appPort]:[containerPortToExpose] morph-client:latest`.
+
+- **Note:** the `appPort` is the one where the application would be listening to, and the `containerPortToExpose` is the one that would be visible outside the container. Eg: `3000:3000`
 
 ### Contribute
 

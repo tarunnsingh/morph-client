@@ -4,7 +4,7 @@ version: '3'
 services:
           
   morph-server:
-    build: git@github.com:tarunnsingh/morph-server.git
+    build: https://github.com/tarunnsingh/morph-server.git
     ports:
       - 5000
 
